@@ -1,34 +1,35 @@
 
-# Proheart 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yourusername/proheart/blob/main/LICENSE)
+[![Website](https://img.shields.io/website-up-down-green-red/https/proheart.000webhostapp.com.svg)](https://proheart.000webhostapp.com/)
 
-# ProHeart
-
-ProHeart is a sponsor-free project aimed at providing a range of health-related services to users. Our platform offers a symptom checker, community forum, disease cards, and a newsletter to help address health queries. We are dedicated to empowering individuals with reliable information and fostering a sense of community around health and well-being.
+ProHeart is a sponsor-free project aimed at promoting health and well-being. Our website provides a range of useful features to help users with their health-related queries. With ProHeart, you can access a symptom checker, community forum, disease cards, newsletter, and stay informed about local health camps. We also recognize and reward top contributors through our Superhuman Box initiative.
 
 ## Features
 
-- *Symptom Checker*: Use our symptom checker tool to get a preliminary understanding of your health condition based on the symptoms you provide. Note that this tool is not a substitute for professional medical advice.
+- *Symptom Checker:* Use our symptom checker to get information about possible causes and recommended actions for various symptoms.
 
-- *Community Forum*: Engage with other users, share experiences, and seek advice in our community forum. Connect with like-minded individuals who are passionate about health and well-being.
+- *Community Forum:* Engage with a community of like-minded individuals, ask questions, and share your knowledge and experiences.
 
-- *Disease Cards*: Access comprehensive disease cards that provide in-depth information about various health conditions. Stay informed about symptoms, causes, treatment options, and preventive measures.
+- *Disease Cards:* Explore detailed information about various diseases, including causes, symptoms, treatment options, and prevention methods.
 
-- *Newsletter*: Subscribe to our newsletter to receive regular updates on the latest health news, tips, and expert insights. Stay informed and make informed decisions about your health.
+- *Newsletter:* Stay updated with the latest health news, tips, and articles through our newsletter subscription.
 
-- *Local Health Camps*: Stay updated on local health camps and events happening in your area. Participate and take advantage of these opportunities to prioritize your health and well-being.
+- *Local Health Camps:* Discover local health camps and events happening in your area to access medical services and health screenings.
 
-- *Superhuman Box*: We recognize and appreciate the contributions of our top contributors through the Superhuman Box. Join the community, actively participate, and have a chance to be acknowledged for your valuable input.
+- *Superhuman Box:* We recognize the efforts of our top contributors through the Superhuman Box initiative, which provides special rewards and benefits.
+
+## Live Website
+
+The ProHeart project is live and hosted. You can access the website using the following link: [ProHeart Website](https://proheart.000webhostapp.com/)
 
 ## Contributing
 
-We welcome contributions from individuals who are passionate about improving health literacy and promoting a healthier world. Whether you're a developer, designer, or health enthusiast, there are several ways to get involved:
-
-- Report issues and suggest enhancements: If you come across any bugs or have ideas for improving the ProHeart platform, please [open an issue](https://github.com/proheart/project/issues) on our GitHub repository.
-
-- Contribute code: If you have the technical expertise, you can contribute to the development of ProHeart by submitting a pull request. Please refer to our [contribution guidelines](https://github.com/proheart/project/blob/main/CONTRIBUTING.md) for more information.
-
-- Spread the word: Help us reach a wider audience by sharing ProHeart with your friends, family, and social networks. Together, we can create a healthier world!
+We welcome contributions from the community to help us build a healthier world. If you have ideas, bug reports, or feature requests, please open an issue on GitHub. You can also fork the repository, make your changes, and submit a pull request. We appreciate your involvement!
 
 ## License
 
-ProHeart is released under the [MIT License](https://github.com/proheart/project/blob/main/LICENSE).
+ProHeart is open-source and released under the [MIT License](https://github.com/yourusername/proheart/blob/main/LICENSE). Feel free to use, modify, and distribute the codebase as per the terms of the license.
+
+---
+
+Join us in making a positive impact on global health. Together, let's build a healthier world with ProHeart!
