@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Contacts - proheart</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Team-icons.css">
+    <link rel="stylesheet" href="assets/css/Team-images.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span><span style="text-decoration: underline;">proheart</span></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.php">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="integrations.php">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.php">Camps</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contacts.php">Contacts</a></li>
+                </ul><a class="btn btn-primary shadow" role="button" href="#signup">Subscribe</a>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5 mt-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-6 fw-bold mb-4">Got any <span class="underline">questions</span>?</h2>
+                    <p class="text-muted"><br><span style="color: rgb(0, 0, 0);">Don't hesitate to reach out to us! We're always available to assist you and will respond to your message as soon as possible.</span><br><br></p>
+                </div>
+            </div>
+
+        <?php
+
+           if($_SERVER['REQUEST_METHOD']=="POST")
+           {
+            $name=$_POST["name"];
+            $email1=$_POST["email"];
+            $message=$_POST["message"];
+
+            if($email1 != "")
+            {
+                if(isset($_POST["email"]))
+                {
+                    $server="127.0.0.1";
+                    $username="root";
+                    $password="";
+
+                    $con = mysqli_connect($server,$username,$password);
+
+                    if(!$con)
+                    {
+                        die("Error due to : ".mysqli_connect_error());
+                    }
+
+                    $sql = "INSERT INTO `newsletters`.`query` (`name`, `email`, `message`, `date`) 
+                     VALUES ('$name', '$email1', '$message', current_timestamp());";
+
+                    if($con->QUERY($sql)==true)
+                    {
+                        echo '<div class="alert alert-success alert- dismissible fade 
+                        show" role="alert">
+                        <strong>YOUR QUERY HAS BEEN SUBMITTED . </strong> We will get back to you 
+                         soon .
+                       <button type="button" class="btn-close" data-bs-dismiss="alert" 
+                         aria-label="Close"></button>
+                        </div>';
+                    } 
+                    else
+                    {
+                        echo "Error while adding to database.";
+                    }
+                }
+            }
+            else
+            {
+                echo '<div class="alert alert-warning alert-dismissible fade show" 
+                role="alert">
+                <strong>Please note down the query.</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" 
+                aria-label="Close"></button>
+                </div>';
+            }
+           }
+
+
+        ?>
+
+
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
+                    <div>
+                        <form class="p-3 p-xl-4" method="post">
+                            <div class="mb-3"><input class="shadow form-control" type="text" id="name-1" name="name" placeholder="Name"></div>
+                            <div class="mb-3"><input class="shadow form-control" type="email" id="email-1" name="email" placeholder="Email"></div>
+                            <div class="mb-3"><textarea class="shadow form-control" id="message-1" name="message" rows="6" placeholder="Message"></textarea></div>
+                            <div><button class="btn btn-primary shadow d-block w-100" type="submit">Send </button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4 py-xl-5 mb-5">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-6 fw-bold mb-5"><span class="pb-3 underline">FAQ<br></span></h2>
+                    <p class="text-muted mb-5"><br><span style="color: rgb(0, 0, 0);">Thank you for your interest in Community Health Care. Below are answers to some of our most frequently asked questions. If your question is not answered below please use the Contact Us page to submit your question.</span><br><br></p>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-8 mx-auto">
+                    <div class="accordion text-muted" role="tablist" id="accordion-1">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="false" aria-controls="accordion-1 .item-1"><span style="color: rgb(0, 0, 0);">How can I contact the healthcare website?</span><br><br></button></h2>
+                            <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p></p>
+                                    <p class="mb-0"><br><span style="color: rgb(0, 0, 0);">You can usually find the contact information on the website's "Contact Us" page. This page may include a phone number, email address, or contact form.</span><br><br><br></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2"><br><span style="color: rgb(0, 0, 0);">What should I include in my message to the healthcare website?</span><br><br></button></h2>
+                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p class="mb-0"><br><span style="color: rgb(0, 0, 0);">Be sure to include your name, contact information, and a detailed message about your inquiry or concern. Providing specific details can help the website respond more effectively.</span><br><br></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="true" aria-controls="accordion-1 .item-3"><br><span style="color: rgb(0, 0, 0);"> How long will it take for the website to respond to my message?</span><br><br></button></h2>
+                            <div class="accordion-collapse collapse show item-3" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p class="mb-0"><br><span style="color: rgb(0, 0, 0);"> Response times can vary, but the healthcare website strive to respond to inquiries within 24-48 hours. If your concern is urgent, it is best to call the website directly.</span><br><br></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container py-4 py-lg-5">
+            <section class="py-4 py-xl-5">
+                <div class="container">
+                    <div class="row mb-2" id="signup">
+                        <div class="col-md-8 col-xl-6 text-center mx-auto">
+                            <h2 class="display-6 fw-bold">Subscribe to our newsletter</h2>
+                            <p class="text-muted">"Stay informed on the latest healthcare news, trends, and tips. Subscribe to our newsletter for exclusive content, special offers, and invitations."</p>
+                        </div>
+                    </div>
+
+        <?php
+           
+           if($_SERVER['REQUEST_METHOD']=="POST")
+           {
+              $email=$_POST["email"];
+
+              if($email != "")
+              {
+
+                if(isset($_POST['email']))
+                {
+                     $server="127.0.0.1";
+                     $username="root";
+                     $password="";
+
+                     $con = mysqli_connect($server,$username,$password);
+
+                     if(!$con)
+                     {
+                         die("error due to : ".mysqli_connect_error());
+                     }
+
+                     $sql = "INSERT INTO `newsletters`.`emails` (`Email`, `Date`) 
+                            VALUES ('$email',current_timestamp());";
+                     if($con->QUERY($sql)==true)
+                     {
+                         echo '<div class="alert alert-success alert-dismissible fade 
+                         show" role="alert">
+                         <strong>SUCCESSFULL!</strong> Thank you for subscribing.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" 
+                          aria-label="Close"></button>
+                         </div>';
+                     }
+                     else
+                     {
+                         echo "Error while adding to database.";
+                     }
+                }     
+
+              }
+              else
+              {
+                echo '<div class="alert alert-warning alert-dismissible fade show" 
+                role="alert">
+                <strong>Please fill up the details.</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" 
+                aria-label="Close"></button>
+                </div>';
+              }
+           }
+
+        ?>
+
+
+
+
+
+
+                    <form class="d-flex justify-content-center flex-wrap" method="post">
+                        <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Your Email"></div>
+                        <div class="mb-3"><button class="btn btn-primary ms-2" type="submit">Subscribe </button></div>
+                    </form>
+                </div>
+            </section>
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"></li>
+                    <li class="list-inline-item"></li>
+                    <li class="list-inline-item"></li>
+                </ul>
+            </div>
+            <footer class="text-center bg-dark">
+                <div class="container text-white py-4 py-lg-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item me-4"><a class="link-light" href="index.php">Home</a></li>
+                        <li class="list-inline-item me-4"><a class="link-light" href="features.php">Features</a></li>
+                        <li class="list-inline-item"><a class="link-light" href="integrations.php">Community</a></li>
+                    </ul>
+                    <p class="text-muted mb-0">Copyright © 2023 Brand</p>
+                    <p class="fs-6 text-muted mb-0">made by SCORPIONS with ❤️</p>
+                </div>
+            </footer>
+            <div></div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/startup-modern.js"></script>
+</body>
+
+</html>

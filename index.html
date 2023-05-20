@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - proheart</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Team-icons.css">
+    <link rel="stylesheet" href="assets/css/Team-images.css">
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span><span style="text-decoration: underline;">proheart</span></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.php">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="integrations.php">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.php">Camps</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts.php">Contacts</a></li>
+                </ul><a class="btn btn-primary shadow" role="button" href="#signup">Subscribe</a>
+            </div>
+        </div>
+    </nav>
+    <header class="pt-5">
+        <div class="container pt-4 pt-xl-5">
+            <div class="row pt-5">
+                <div class="col-md-8 text-center text-md-start mx-auto">
+                    <div class="text-center" data-aos="zoom-out">
+                        <h1 class="display-4 fw-bold mb-5">"Your Health Matters: Empowering You with Knowledge and Care".</h1>
+                        <p class="fs-5 text-muted mb-5"><br>"Search for symptoms here" 👇<br><br></p>
+                        <form class="d-flex justify-content-center flex-wrap" method="post">
+                            <div class="shadow-lg mb-3"><input class="form-control" id="title" type="text" name="email" placeholder="for ex : i have fever" style="width: 500px;height: 50px;"></div>
+                            <div class="shadow-lg mb-3"><button class="btn btn-primary" type="submit" style="height: 50px;">🔍</button></div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                        <?php
+        
+        $value = "I have a fever";
+        if (isset($_POST['email'])) {
+            $value = $_POST["email"];
+        } else {
+            //echo '<script>window.location.href = "index.php";</script>';
+        }
+        
+        $ch = curl_init();
+        
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "{\n  \"model\": \"text-davinci-003\",\n  
+             \"prompt\": \"" .$value. "`:\",\n  \"temperature\": 0.6,\n  \"max_tokens\": 
+              3599,\n  \"top_p\": 1,\n  \"frequency_penalty\": 1,\n  \"presence_penalty\": 
+               1\n}");
+        
+        $headers = [];
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer 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';
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        
+        $result = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        $result = json_decode($result);
+        // print_r($result); exit;
+        curl_close($ch);
+    
+
+        
+    
+    ?>
+
+    <div class="text-center">
+            <div>
+                <b style="padding-bottom: 30px;">Here is your answer</b>
+            </div>
+            <br>
+
+            <div class="div" style="border: black solid 3px; padding:10px; ">
+                <?php echo $result->choices[0]->text; ?>
+            </div>
+
+
+         </div>
+
+
+
+
+                        
+
+<br>
+<br>
+                <div class="col-12 col-lg-10 mx-auto">
+                    <div class="text-center position-relative"  data-aos="zoom-out"><img class="img-fluid" src="assets/img/illustrations/meeting.svg" style="width: 800px;"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container py-4 py-xl-5">
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>🏆🦸‍♂️&nbsp; Superhuman's&nbsp; 🦸‍♀️&nbsp; 🚀</h2>
+                <p>Contribute to website information, idea section, correct information, correct us, also want to collab and make this website more useful and earn the superhuman badge 🎖️</p>
+            </div>
+        </div>
+        <div class="row gy-4 row-cols-2 row-cols-md-4">
+            <div class="col">
+                <div class="card border-0 shadow-none">
+                    <div class="card-body text-center d-flex flex-column align-items-center p-0"  data-aos="fade-up-right"><img class="rounded-circle mb-3 fit-cover" width="130" height="130" src="assets/img/brands/images%20(4).jpg">
+                        <h5 class="fw-bold text-primary card-title mb-0"><strong><span style="color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) ;">Sampada Gupta</span></strong></h5>
+                        <p class="text-muted card-text mb-2">2nd Year, B.tech</p>
+                        <ul class="list-inline fs-6 text-muted w-100 mb-0">
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"></div>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"></div>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 shadow-none">
+                    <div class="card-body text-center d-flex flex-column align-items-center p-0" data-aos="fade-up-right"><img class="rounded-circle mb-3 fit-cover" width="130" height="130" src="assets/img/brands/images%20(2).png">
+                        <h5 class="fw-bold text-primary card-title mb-0">Kumar Harsha&nbsp;</h5>
+                        <p class="text-muted card-text mb-2">1st year, B.tech</p>
+                        <ul class="list-inline fs-6 text-muted w-100 mb-0">
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"></div>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"></div>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 shadow-none">
+                    <div class="card-body text-center d-flex flex-column align-items-center p-0" data-aos="fade-up-left"><img class="rounded-circle mb-3 fit-cover" width="130" height="130" src="assets/img/brands/images%20(2).png">
+                        <h5 class="fw-bold text-primary card-title mb-0">Rudra Pratap Singh&nbsp;</h5>
+                        <p class="text-muted card-text mb-2">1st year, B.tech</p>
+                        <ul class="list-inline fs-6 text-muted w-100 mb-0">
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"></div>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"></div>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                                    </svg></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-0 shadow-none">
+                    <div class="card-body text-center d-flex flex-column align-items-center p-0" data-aos="fade-up-left"><img class="rounded-circle mb-3 fit-cover" width="130" height="130" src="assets/img/brands/images%20(1).png">
+                        <h5 class="fw-bold text-primary card-title mb-0">Shreevesh Kumar&nbsp;</h5>
+                        <p class="text-muted card-text mb-2">1st Year, B.tech</p><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <h1 style="text-align: center;">&nbsp;Health Cards⚡</h1>
+    <section>
+        <div class="container py-4 py-xl-5">
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col">
+                    <div class="card border-light border-1 d-flex justify-content-center p-4">
+                        <div class="card-body" data-aos="zoom-out">
+                            <div class="bs-icon-lg bs-icon-rounded bs-icon-secondary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-4 bs-icon" ><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-school">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path>
+                                    <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path>
+                                </svg></div>
+                            <div >
+                                <h4 class="fw-bold">Feeling sleepy more often ?&nbsp;</h4><a class="btn btn-sm px-0" role="button" href="https://www.verywellhealth.com/reasons-why-you-feel-sleepy-3014818" target="_blank">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                    </svg><br></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light border-1 d-flex justify-content-center p-4" data-aos="zoom-out">
+                        <div class="card-body">
+                            <div class="bs-icon-lg bs-icon-rounded bs-icon-secondary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-4 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-school">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path>
+                                    <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path>
+                                </svg></div>
+                            <div>
+                                <h4 class="fw-bold">Am I really&nbsp; &nbsp; healthy ?</h4><a class="btn btn-sm px-0" role="button" href="https://nutrova.com/blogs/health/13-fundamental-indicators-of-good-health-and-how-to-achieve-them" target="_blank">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                    </svg><br></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light border-1 d-flex justify-content-center p-4" data-aos="zoom-out">
+                        <div class="card-body">
+                            <div class="bs-icon-lg bs-icon-rounded bs-icon-secondary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-4 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-school">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path>
+                                    <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path>
+                                </svg></div>
+                            <div>
+                                <h4 class="fw-bold">Feeling less energetic ?&nbsp;</h4>
+                                <p class="text-muted"></p><a class="btn btn-sm px-0" role="button" href="https://www.healthline.com/nutrition/10-reasons-you-are-tired" target="_blank">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                    </svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section></section>
+        </div>
+    </section>
+    <section>
+        <div class="container py-4 py-xl-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="display-6 fw-bold pb-md-4">Summer season&nbsp;<span class="underline">tips</span>&nbsp;<span data-aos="fade">☀️</span></h3>
+                </div>
+            </div>
+            <div class="row gy-4 gy-md-0">
+                <div class="col-md-6 d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center">
+                    <div>
+                        <div class="row gy-2 row-cols-1 row-cols-sm-2">
+                            <div class="col text-center text-md-start">
+                                <div class="d-flex justify-content-center align-items-center justify-content-md-start"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-apple fs-3 text-primary bg-warning" style="font-size: 26px;">
+                                        <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"></path>
+                                        <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"></path>
+                                    </svg>
+                                    <h5 class="fw-bold mb-0 ms-2">Food&nbsp;</h5>
+                                </div>
+                                <p class="text-muted my-3">Pay close attention to food and go for fruits.</p>
+                            </div>
+                            <div class="col text-center text-md-start">
+                                <div class="d-flex justify-content-center align-items-center justify-content-md-start"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-walk fs-3 text-primary bg-warning">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <circle cx="13" cy="4" r="1"></circle>
+                                        <line x1="7" y1="21" x2="10" y2="17"></line>
+                                        <path d="M16 21l-2 -4l-3 -3l1 -6"></path>
+                                        <path d="M6 12l2 -3l4 -1l3 3l3 1"></path>
+                                    </svg>
+                                    <h5 class="fw-bold mb-0 ms-2">Exercise</h5>
+                                </div>
+                                <p class="text-muted my-3">Be a mid active and go for exercises or sports daily.</p>
+                            </div>
+                            <div class="col text-center text-md-start">
+                                <div class="d-flex justify-content-center align-items-center justify-content-md-start"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-glass-full fs-3 text-primary bg-warning" style="font-size: 26px;">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                        <line x1="12" y1="15" x2="12" y2="21"></line>
+                                        <path d="M16 4l1 6a5 5 0 0 1 -10 0l1 -6z"></path>
+                                        <path d="M7 10a4 4 0 0 1 5 0a4 4 0 0 0 5 0"></path>
+                                    </svg>
+                                    <h5 class="fw-bold mb-0 ms-2">Water&nbsp;</h5>
+                                </div>
+                                <p class="text-muted my-3">Be Hydrated always !&nbsp;&nbsp;</p>
+                            </div>
+                            <div class="col text-center text-md-start">
+                                <div class="d-flex justify-content-center align-items-center justify-content-md-start"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-sun fs-3 text-primary bg-warning">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <circle cx="12" cy="12" r="4"></circle>
+                                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+                                    </svg>
+                                    <h5 class="fw-bold mb-0 ms-2">Stay indoors</h5>
+                                </div>
+                                <p class="text-muted my-3">Try to stay indoors during noon and wear loose clothing to beat the heat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-first order-md-last">
+                    <div style="padding-top: 9px;margin-top: -2px;"><img class="rounded img-fluid w-100 fit-cover" style="min-height: 300px;" src="assets/img/illustrations/teamwork.svg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section></section>
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div class="bg-primary border rounded border-0 border-primary overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <div class="text-white p-4 p-md-5">
+                            <h2 class="fw-bold text-white mb-3">Do you know ?</h2>
+                            <p class="mb-4">🟢 Coffee can help fight depression.</p>
+                            <p class="mb-4">🟢 Bananas can boost your mood.</p>
+                            <p class="mb-4">🟢 Apples can be very helpful for people with often upset stomachs .</p>
+                            <p class="mb-4"></p>
+                            <div class="my-3"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-first order-md-last" style="min-height: 250px;"><img class="w-100 h-100 fit-contain pt-5 pt-md-0" src="assets/img/illustrations/web-development.svg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container py-4 py-xl-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-6 fw-bold mb-4">Check out<br>our <span class="underline">short hand guides</span></h2>
+                </div>
+            </div>
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                            <div>
+                                <h4 class="display-5 fs-2 fw-bold text-bg-light mb-4"></h4>
+                                <h4 class="display-5 fw-bold mb-4"><span style="color: rgb(0, 61, 165);">reliable health info</span></h4>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span><span style="color: rgb(34, 34, 34); background-color: rgb(243, 244, 246);">find reliable health information at your doctor’s surgery, pharmacies and community health center's.</span></span></li>
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span><span style="color: rgb(34, 34, 34); background-color: rgb(243, 244, 246);">Beware of medical information provided by organizations&nbsp;trying to sell a particular product or service</span></span></li>
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span>When buying medicine online, check for expiries and correct name</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-warning border-2 h-100">
+                        <div class="card-body d-flex flex-column justify-content-between p-4"><span class="badge bg-warning position-absolute top-0 end-0 rounded-bottom-left text-uppercase text-primary">Most Popular</span>
+                            <div>
+                                <h4 class="display-5 fw-bold mb-4"><a href="https://www.mayoclinic.org/first-aid/first-aid-fractures/basics/art-20056641"><strong><span style="color: rgb(0, 61, 165);">Fractures&nbsp;</span></strong></a></h4>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span><strong><span style="color: rgb(17, 17, 17);">Stop any bleeding</span></strong></span></li>
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span><strong><span style="color: rgb(17, 17, 17);">Immobilize the injured area</span></strong></span></li>
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span><strong><span style="color: rgb(17, 17, 17);">Apply ice packs to limit swelling and help relieve pain.</span></strong></span></li>
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span><strong><span style="color: rgb(17, 17, 17);">Treat for shock.</span></strong></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                            <div class="pb-4">
+                                <h4 class="display-5 fw-bold mb-4"><span style="color: rgb(33, 33, 33); background-color: initial;">First Aid for Burns</span></h4>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span>Wash the area repeatedly by cold water&nbsp;</span></li>
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span><span style="color: rgb(33, 33, 33);">Apply a light gauze bandage, if burn in minimal apply alovera.&nbsp;</span></span></li>
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span>Take pain-killers&nbsp;</span></li>
+                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2">➡️</span><span>Do not break any blisters.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4 py-xl-5 mb-5">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-6 fw-bold mb-5"><span class="pb-3 underline">FAQ<br></span></h2>
+                    <p class="text-muted mb-5">Go through the FAQ's once before you want to contact us !&nbsp;</p>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-8 mx-auto">
+                    <div class="accordion text-muted" role="tablist" id="accordion-1">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="false" aria-controls="accordion-1 .item-1">How do I contribute here and earn Superhuman title?</button></h2>
+                            <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p>To earn Superhuman title, you need to contribute to website and tell us about nearby events and also if you encounter any mistake or you want to suggest something then you are most welcome and these tasks will help you earn the Superhuman title.&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">Can i trust the website and its source of information ?</button></h2>
+                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p class="mb-0">All the information provided here has been verified by the content members and also the med geeks so no worries still if you encounter any error you are most welcome to make us aware, we are from you and so many thanks to all!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="true" aria-controls="accordion-1 .item-3"></button></h2>
+                            <div class="accordion-collapse collapse show item-3" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p class="mb-0">No, the website is completely sponsor free and any information provided here is completely unbiased and correct.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div class="text-white bg-primary border rounded border-0 border-primary d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
+                <div class="pb-2 pb-lg-1">
+                    <h2 class="fw-bold text-warning mb-2">Still can't find what you're looking for ?&nbsp;</h2>
+                    <p class="mb-0">we will help find you your answers ...&nbsp;</p>
+                </div>
+                <div class="my-2"><a class="btn btn-light fs-5 py-2 px-4" role="button" href="contacts.html" target="_blank">Contact us</a></div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container py-4 py-lg-5">
+            <section class="py-4 py-xl-5">
+                <div class="container">
+                    <div class="row mb-2" id="signup">
+                        <div class="col-md-8 col-xl-6 text-center mx-auto">
+                            <h2 class="display-6 fw-bold">Subscribe to our newsletter</h2>
+                            <p class="text-muted">"Stay informed on the latest healthcare news, trends, and tips. Subscribe to our newsletter for exclusive content, special offers, and invitations."</p>
+                        </div>
+                    </div>
+
+    <?php
+      if($_SERVER['REQUEST_METHOD']=="POST")
+      {
+        $email=$_POST["email"];
+        if($email != "")
+        {
+            if(isset($_POST['email']))
+            {
+                $server="127.0.0.1";
+                $username="root";
+                $password="";
+
+                $con=mysqli_connect($server,$username,$password);
+
+                if(!$con)
+                {
+                    die("error due to : ".mysqli_connect_error());
+                }
+
+                $sql= "INSERT INTO `newsletters`.`emails` (`Email`, `Date`) 
+                VALUES ('$email', 
+                current_timestamp());";
+
+                if($con->QUERY($sql)==true)
+                {
+                    ECHO '<div class="alert alert-success alert-dismissible fade 
+                     show" role="alert">
+                     <strong>SUCCESSFULL!</strong> Thank you for subscribing.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" 
+                      aria-label="Close"></button>
+                     </div>';
+                }
+                else
+                {
+                    echo "Error while adding to database.";
+                }
+            }
+        }
+        else
+        {
+            ECHO '<div class="alert alert-warning alert-dismissible fade show" 
+                 role="alert">
+                 <strong>Please fill up the details.</strong>
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" 
+                 aria-label="Close"></button>
+                 </div>';
+        }
+      }
+
+
+    ?>
+
+
+
+
+
+
+
+
+
+
+
+                    <form class="d-flex justify-content-center flex-wrap" method="post">
+                        <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Your Email"></div>
+                        <div class="mb-3"><button class="btn btn-primary ms-2" type="submit">Subscribe </button></div>
+                    </form>
+                </div>
+            </section>
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"></li>
+                    <li class="list-inline-item"></li>
+                    <li class="list-inline-item"></li>
+                </ul>
+            </div>
+            <footer class="text-center bg-dark">
+                <div class="container text-white py-4 py-lg-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item me-4"><a class="link-light" href="index.php">Home</a></li>
+                        <li class="list-inline-item me-4"><a class="link-light" href="features.php">Features</a></li>
+                        <li class="list-inline-item"><a class="link-light" href="integrations.php">Community</a></li>
+                    </ul>
+                    <p class="text-muted mb-0">Copyright © 2023 Brand</p>
+                    <p class="fs-6 text-muted mb-0">made by SCORPIONS with ❤️</p>
+                </div>
+            </footer>
+            <div></div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/startup-modern.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+        <!-- our aos data -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+        AOS.init({
+            offset: 300,
+            duration: 1000,
+        });
+        </script>
+</body>
+
+</html>
